@@ -1,0 +1,185 @@
+@font-face {
+  font-family: 'iconfont';
+  src: url('../font/iconfont.eot');
+  src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'),
+  url('../font/iconfont.woff') format('woff'),
+  url('../font/iconfont.ttf') format('truetype'),
+  url('../font/iconfont.svg#iconfont') format('svg');
+}
+.iconfont{
+  font-family:"iconfont" !important;
+  font-size:16px;font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+$a:20;
+ul,p{
+    list-style:none;
+    margin:0;
+    padding:0
+}
+html{
+    width: 100%;
+    height: 100%;
+    body{
+        @extend html;
+        margin:0;
+        padding:80/$a+rem 0 44.5/$a+rem 0;
+        box-sizing:border-box;
+        header{
+            width: 100%;
+            height: 44/$a+rem;
+            background:#0DC441;
+            position:fixed;
+            top:0;
+        }
+    }
+}
+header{
+    ul{
+        width: 100%;
+        display:flex;
+        li{
+            height: 100%;
+            line-height:44/$a+rem;
+            text-align:center;
+            &.iconfont{
+                width: 44/$a+rem;
+                font-size:24/$a+rem;
+                color:rgba(255,255,255,0.5);
+            }
+            &:nth-of-type(2){
+                flex:1;
+                display:flex;
+                height:44/$a+rem;
+                justify-content: center;
+                align-items:center;
+            }
+        }
+    }
+}
+header span{
+    display:inline-block;
+    font-size:12/$a+rem;
+    width: 59/$a+rem;
+    height: 25/$a+rem;
+    line-height:25/$a+rem;
+    background:rgba(10,217,133,1);
+    &:nth-of-type(1){
+        border-radius:12/$a+rem 0 0 12/$a+rem;
+        color:rgba(255,255,255,1)
+    }
+    &:nth-of-type(2){
+        border-radius:0 12/$a+rem 12/$a+rem 0;
+        background:rgba(10,217,133,0.4);
+        color:rgba(255,255,255,0.5)
+    }
+}
+nav{
+    width: 100%;
+    height: 35/$a+rem;
+    position:fixed;
+    font-size:14/$a+rem;
+    top:44/$a+rem;
+    background:#fff;
+    border-bottom:1/$a+rem solid rgb(214,214,214);
+    ul{
+        width: 100%;
+        height: 35/$a+rem;
+        display:flex;
+        li{
+            flex:1;
+            line-height:35/$a+rem;
+            text-align:center;
+        }
+    }
+}
+section{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding:0 2/$a+rem;
+    box-sizing:border-box;
+    ul{
+        width: 100%;
+        height: 100%;
+        li{
+            display:flex;
+            flex-direction:column;
+            justify-content: center;
+            float:left;
+            width: 50%;
+            height: 196/$a+rem;
+            overflow:hidden;
+            padding:0 2/$a+rem;
+            margin-top:4/$a+rem;
+            box-sizing:border-box;
+        }
+    }
+}
+section li{
+    img{
+        width: 100%;
+    }
+    & p{
+        width: 100%;
+        text-align:center;
+        font-size:16/$a+rem;
+    }
+}
+footer{
+    width: 100%;
+    height: 43.5/$a+rem;
+    background:#fff;
+    border-top:1/$a+rem solid rgb(214,214,214);
+    position:fixed;
+    bottom:0;
+    ul{
+        display:flex;
+        width: 100%;
+        height: 100%;
+        li{
+            flex:1;
+            text-align:center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color:rgb(214,214,214);
+        }
+    }
+}
+.active{
+    color:#0DC441;
+}
+footer li{
+    i.iconfont{
+        font-size:22/$a+rem;
+        width: 24/$a+rem;
+        height: 24/$a+rem;
+    }
+    & b{
+        font-size:12/$a+rem;
+        width: 24/$a+rem;
+        height: 12/$a+rem;
+        line-height:12/$a+rem;
+    }
+    &:nth-of-type(3){
+        position:relative;
+        i{
+            display: block;
+            width: 50/$a+rem;
+            height: 50/$a+rem;
+            line-height: 50/$a+rem;
+            border: 1/$a+rem solid rgb(214,214,214);
+            border-radius:50%;
+            background: #fff;
+            position:absolute;
+            box-sizing: border-box;
+            bottom:2/$a+rem;
+            left:50%;
+            margin-left:-25/$a+rem;
+        }
+    }
+}
