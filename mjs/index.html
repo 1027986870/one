@@ -5,32 +5,50 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0 ,user-scalable=no"/>
 		<style>
-			input{width: 80%;height: 50px;}
-			a{
-				display:block;
-				font-size:24px;
-				width: 30px;
-				height: 30px;
-			}
-			.box{width: 100%;height:400px;position:absolute;top:0;background:rgba(0,0,0,0.2);}
+			body{margin:0;}
+			.box{width: 100%;height: 400px;overflow:hidden;position:relative;}
+			ul{width: 400%;height: 100%;list-style:none;margin:0;padding:0;position:absolute;top:0;}
+			ul li{float:left;width: 25%;height: 100%;}
+			ul li:nth-of-type(1){background:red;}
+			ul li:nth-of-type(2){background:yellow;}
+			ul li:nth-of-type(3){background:coral;}
+			ul li:nth-of-type(4){background:pink;}
 		</style>
 	</head>
 	<body>
-		<div class="box"></div>
-		<input type="number" />
-		<a href="http://www.baidu.com">百度</a>
+		<div class="box">
+			<ul class="banner">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
 	</body>
 	<script>
 		var oBox=document.getElementsByClassName('box')[0]
+		var oban=document.getElementsByClassName('banner')[0]
+		var w=innerWidth;
+		var left;
 		oBox.addEventListener('touchstart',function(e){
-			e.preventDefault();
-			this.style.display='none'
+			e.preventDefault()
+			var sta=e.targetTouches[0].pageX
+			left=oban.offsetLeft;
+			this.addEventListener('touchmove',function(e){
+				var dis=e.targetTouches[0].pageX-sta
+				oban.style.left=left+dis+'px'
+			})
+			this.addEventListener('touchend',function(e){
+				var n=Math.round(oban.offsetLeft/w)
+				if(n>0){
+					n=0
+				}
+				if(n<-3){
+					n=-3
+				}
+				oban.style.left=n*w+'px'
+				
+			})
 		})
-//		oBox.addEventListener('touchmove',function(e){
-//			oP[1].innerHTML=e.targetTouches.length
-//		})
-//		oBox.addEventListener('touchend',function(e){
-//			oP[2].innerHTML=e.changedTouches.length
-//		})
 	</script>
 </html>
