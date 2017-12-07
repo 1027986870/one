@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalabel"/>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js"></script>
+		<style>
+			.box{width: 90px;height: 90px;margin:0 auto;background:palevioletred;transition:all 200ms;}
+			.b{transform: scale(2);}
+		</style>
+	</head>
+	<body>
+		<div class="box" id='box'></div>
+		
+	</body>
+	<script>
+		var oB=document.getElementById("box")
+		var manager = new Hammer.Manager(oB);
+
+// Create a recognizer
+var Tap = new Hammer.Tap({
+  taps: 1
+});
+
+// Add the recognizer to the manager
+manager.add(Tap);
+		manager.on('tap',function(){
+			oB.classList.toggle('b')
+		})
+	</script>
+</html>
