@@ -23,6 +23,7 @@
 	<script>
 		var oBox=document.getElementsByClassName('box')[0]
 		oBox.addEventListener('touchstart',function(e){
+			e.preventDefault()
 			this.style.display='none'
 		})
 //		oBox.addEventListener('touchmove',function(e){
