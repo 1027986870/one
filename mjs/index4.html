@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src='js/hammer.js'></script>
+		<style>
+			*{margin:0;padding:0;}
+			.box{width: 200px;height: 200px;margin:50px auto;background:deeppink;transition:all 300ms;}
+		</style>
+	</head>
+	<body>
+		<div class="box" id="box"></div>
+	</body>
+	<script>
+		var oBox=document.getElementById('box')
+		var hm=new Hammer(oBox)
+		hm.get('pinch').set({enable:true})
+		var sc=1
+		hm.on('pinchout',function(){
+			if(sc<3){
+				sc+=0.1
+			}
+			oBox.style.webkitTransform="scale("+sc+")"
+		})
+		hm.on('pinchin',function(){
+			if(sc>0.3){
+				sc-=0.1
+			}
+			oBox.style.webkitTransform="scale("+sc+")"
+		})
+	</script>
+</html>
