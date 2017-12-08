@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src='js/hammer.js'></script>
+		<style>
+			*{margin:0;padding:0}
+			html,body{width: 100%;height: 100%;}
+			.box{width: 100%;height: 300px;overflow: hidden;}
+			.con{width: 400%;height: 100%;display:flex;transition:all 1s;}
+			.con div{width: 25%;flex-shrink: 0;}
+			.con div:nth-of-type(1){background: red;}
+			.con div:nth-of-type(2){background: yellow;}
+			.con div:nth-of-type(3){background: palevioletred;}
+			.con div:nth-of-type(4){background: chartreuse;}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="con" id="con">
+				<div>1111</div>
+				<div>2222</div>
+				<div>3333</div>
+				<div>4444</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		var _con=document.getElementById('con')
+		var divs=_con.getElementsByTagName('div')
+		var hm=new Hammer(_con)
+		var index=0
+		hm.on('swipeleft',function(){
+			index++
+			if(index==divs.length){
+				index=divs.length-1
+			}
+			console.log(index)
+			_con.style.webkitTransform='translate3d(-'+index*25+'%,0,0)'
+		})
+		hm.on('swiperight',function(){
+			index--
+			if(index<0){
+				index=0
+			}
+			console.log(index)
+			_con.style.webkitTransform='translate3d(-'+index*25+'%,0,0)'
+		})
+	</script>
+</html>
