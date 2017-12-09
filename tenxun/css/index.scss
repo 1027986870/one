@@ -22,6 +22,8 @@ html{
     body{
         @extend html;
         margin:0;
+        padding-top:85px;
+        box-sizing: border-box;
         display: flex;
         flex-direction: column;
         header{
@@ -84,7 +86,6 @@ img{
 section{
     width: 100%;
     flex:1;
-    
     overflow: auto;
     background: #eee;
     .banner{
