@@ -1,0 +1,61 @@
+@font-face { font-family: 'iconfont'; src: url("../font/iconfont.eot"); src: url("../font/iconfont.eot?#iefix") format("embedded-opentype"), url("../font/iconfont.woff") format("woff"), url("../font/iconfont.ttf") format("truetype"), url("../font/iconfont.svg#iconfont") format("svg"); }
+.iconfont { font-family: "iconfont" !important; font-style: normal; -webkit-font-smoothing: antialiased; -webkit-text-stroke-width: 0.2px; -moz-osx-font-smoothing: grayscale; }
+
+ul { list-style: none; }
+
+ul, p, h1 { margin: 0; padding: 0; }
+
+html, html body { width: 100%; height: 100%; }
+html body { margin: 0; display: flex; flex-direction: column; }
+html body header { width: 100%; overflow: hidden; position: fixed; top: 0; z-index: 10000; }
+
+.logo { width: 100%; line-height: 44px; text-align: center; background: #4898fd; font-size: 20px; color: #fff; position: relative; }
+.logo i { position: absolute; right: 16px; }
+
+.nav { width: 100%; height: 40px; display: flex; background: #fff; border-bottom: 1px solid #aaa; }
+.nav span { display: block; width: 28px; line-height: 40px; padding-left: 10px; }
+.nav div { font-size: 16px; flex: 1; overflow: hidden; position: relative; }
+.nav div ul { width: 2170px; height: 100%; position: absolute; top: 0; }
+.nav div ul li { float: left; padding: 0 11px; line-height: 40px; }
+
+img { width: 100%; height: 100%; }
+
+section { width: 100%; flex: 1; overflow: auto; background: #eee; }
+section .banner { width: 100%; height: 10.3125rem; }
+
+.swiper-pagination span { width: 12px; height: 4px; border-radius: 0; }
+
+.content { width: 100%; overflow: hidden; }
+.content > div { width: 100%; overflow: hidden; padding: 0.9375rem 0.75rem; box-sizing: border-box; background: #fff; }
+
+.box { border-bottom: 1px solid #eee; }
+
+.content > div:nth-last-of-type(2) { border: none; }
+
+.zd { width: 100%; margin: 0.625rem 0; }
+
+.box > span.iconfont { font-size: 0.75rem; color: blue; margin-bottom: 0.375rem; }
+
+.box_con { width: 100%; overflow: hidden; display: flex; }
+.box_con div { width: 6.104375rem; height: 4rem; margin-left: 0.9375rem; }
+.box_con p { flex: 1; }
+
+.info { width: 100%; margin-top: 0.9375rem; font-size: 0.75rem; color: #aaa; }
+.info span.r { color: #fff; background: red; }
+.info span.b { color: #fff; background: dodgerblue; }
+
+.tq { display: flex; width: 100%; }
+.tq > div { flex: 1; }
+.tq > div:nth-of-type(1) { font-size: 1.125rem; padding-left: 0.625rem; }
+.tq > div:nth-of-type(1) span { font-size: 0.75rem; }
+.tq > div:nth-of-type(1) span:nth-of-type(2) { background: #edba08; color: #fff; padding: 0 8px; border-radius: 0.125rem; }
+.tq > div:nth-of-type(1) > div:nth-of-type(2) { font-size: 0.75rem; }
+.tq > div:nth-of-type(2) { display: flex; flex-direction: column; justify-content: space-between; text-align: right; font-size: 0.75rem; }
+.tq > div:nth-of-type(2) > div:nth-of-type(2) span { background: #ccc; padding: 0 8px; color: #fff; border-radius: 0.75rem; }
+
+h1 { background: #fff; font-size: 0.875rem; margin-top: 0.9375rem; padding: 0.75rem; box-sizing: border-box; }
+
+.gd { width: 100%; padding: 0.625rem 0 1.25rem 0; text-align: center; }
+.gd a { display: inline-block; padding: 0 1.25rem; line-height: 1.875rem; border: 1px solid dodgerblue; color: dodgerblue; font-size: 0.875rem; border-radius: 1rem; text-decoration: none; }
+
+/*# sourceMappingURL=index.css.map */

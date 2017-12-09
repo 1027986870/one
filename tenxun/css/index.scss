@@ -1,0 +1,212 @@
+$a:16;
+@font-face {
+  font-family: 'iconfont';
+  src: url('../font/iconfont.eot');
+  src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'),
+  url('../font/iconfont.woff') format('woff'),
+  url('../font/iconfont.ttf') format('truetype'),
+  url('../font/iconfont.svg#iconfont') format('svg');
+}
+.iconfont{
+  font-family:"iconfont" !important;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+ul{list-style:none;}
+ul,p,h1{margin:0;padding:0;}
+html{
+    width: 100%;
+    height: 100%;
+    body{
+        @extend html;
+        margin:0;
+        display: flex;
+        flex-direction: column;
+        header{
+            width: 100%;
+            overflow:hidden;
+            position:fixed;
+            top:0;
+            z-index: 10000;
+        }
+    }
+}
+.logo{
+    width: 100%;
+    line-height: 44px;
+    text-align:center;
+    background: #4898fd;
+    font-size:20px;
+    color:#fff;
+    position:relative;
+    i{
+      position:absolute;
+      right:16px; 
+    }
+}
+.nav{
+    width:100%;
+    height: 40px;
+    display:flex;
+    background: #fff;
+    border-bottom: 1px solid #aaa;
+    span{
+        display:block;
+        width: 28px;
+        line-height:40px;
+        padding-left:10px;
+    }
+    & div{
+        font-size:16px;
+        flex:1;
+        overflow:hidden;
+        position: relative;
+        ul{
+            width: 2170px;
+            height: 100%;
+            position:absolute;
+            top:0;
+            li{
+                float:left;
+                padding:0 11px;
+                line-height:40px;
+                
+            }
+        }
+    }
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+section{
+    width: 100%;
+    flex:1;
+    
+    overflow: auto;
+    background: #eee;
+    .banner{
+        width: 100%;
+        height: 165/$a+rem;
+    }
+}
+.swiper-pagination span{
+    width: 12px;
+    height: 4px;
+    border-radius:0;
+}
+.content{
+    width: 100%;
+    overflow:hidden;
+    &>div{
+        width: 100%;
+        overflow:hidden;
+        padding:15/$a+rem 0.75rem;
+        box-sizing:border-box;
+        background: #fff;
+    }
+}
+.box{
+    border-bottom:1px solid #eee;
+}
+.content>div:nth-last-of-type(2){
+    border:none;
+}
+.zd{
+    width: 100%;
+    margin:10/$a+rem 0;
+}
+.box>span.iconfont{
+    font-size:12/$a+rem;
+    color:blue;
+    margin-bottom:6/$a+rem;
+}
+.box_con{
+    width: 100%;
+    overflow:hidden;
+    display:flex;
+    div{
+        width: 97.67/$a+rem;
+        height: 4rem;
+        margin-left:15/$a+rem;
+    }
+    & p{
+        flex:1;
+    }
+}
+.info{
+    width: 100%;
+    margin-top:15/$a+rem;
+    font-size:12/$a+rem;
+    color:#aaa;
+    span.r{
+        color:#fff;
+        background:red;
+    }
+    & span.b{
+        color:#fff;
+        background:dodgerblue;
+    }
+}
+.tq{
+    display:flex;
+    width: 100%;
+    &>div{
+        flex:1;
+    }
+    &>div:nth-of-type(1){
+        font-size:18/$a+rem;
+        padding-left:10/$a+rem;
+        span{
+            font-size:12/$a+rem;
+        }
+        span:nth-of-type(2){
+            background:#edba08;
+            color:#fff;
+            padding:0 8px;
+            border-radius:2/$a+rem;
+        }
+        &>div:nth-of-type(2){
+            font-size:12/$a+rem;
+        }
+    }
+    &>div:nth-of-type(2){
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align:right;
+        font-size:12/$a+rem;
+        &>div:nth-of-type(2){
+            span{
+                background:#ccc;
+                padding:0 8px;
+                color:#fff;
+                border-radius:12/$a+rem;
+            }
+        }
+    }
+}
+h1{
+    background: #fff;
+    font-size:14/$a+rem;
+    margin-top:15/$a+rem;
+    padding:12/$a+rem;
+    box-sizing: border-box;
+}
+.gd{
+    width: 100%;
+    padding:10/$a+rem 0 20/$a+rem 0;
+    text-align:center;
+    a{
+        display: inline-block;
+        padding:0 20/$a+rem;
+        line-height:30/$a+rem;
+        border:1px solid dodgerblue;
+        color:dodgerblue;
+        font-size:14/$a+rem;
+        border-radius:16/$a+rem;
+        text-decoration:none;
+    }
+}
