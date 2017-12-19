@@ -1,0 +1,165 @@
+$a:16;
+html{
+    width: 100%;
+    height: 100%;
+    body{
+        @extend html;
+        margin:0;
+    }
+}
+p{
+    margin:0;
+    padding:0;
+}
+.gamebg{
+    @extend html;
+    background: url(../img/game1.png) 50% 0px no-repeat;
+    background-size: 200% 100%;
+}
+#gamecon{
+    width: 280/$a+rem;
+    height: 280/$a+rem;
+    margin:0 auto;
+    background:rgba(0,0,0,0.5);
+    border-radius:10/$a+rem;
+    position:relative;  
+}
+.grid,.cell{
+    width: 60/$a+rem;
+    height: 60/$a+rem;
+    border-radius:6/$a+rem;
+}
+.grid{
+    float:left;
+    margin:8/$a+rem 0 0 8/$a+rem;
+    background-color:#ccc0b3;
+    opacity: 0.4;
+}
+.cell{
+    text-align:center;
+    line-height:60/$a+rem;
+    color:#776e65;
+    font-size:28/$a+rem;
+    position:absolute;
+}
+.gamebg>p{
+    width:280/$a+rem;
+    margin:0 auto;
+    font-weight:bold;
+    font-size:20/$a+rem;
+    padding:15/$a+rem 0;
+}
+#c00,#c01,#c02,#c03{top:8/$a+rem;}
+#c00,#c10,#c20,#c30{left:8/$a+rem;}
+#c10,#c11,#c12,#c13{top:76/$a+rem;}
+#c01,#c11,#c21,#c31{left:76/$a+rem;}
+#c20,#c21,#c22,#c23{top:144/$a+rem;}
+#c02,#c12,#c22,#c32{left:144/$a+rem;}
+#c30,#c31,#c32,#c33{top:212/$a+rem;}
+#c03,#c13,#c23,#c33{left:212/$a+rem;}
+.n2{background-color:#eee3da;}
+.n4{background-color:#ede0c8;}
+.n8{background-color:#f2b179;}
+.n16{background-color:#f59563;}
+.n32{background-color:#f67c5f;}
+.n64{background-color:#f65e3b;}
+.n128{background-color:#edcf72;}
+.n256{background-color:#edcc61;}
+.n512{background-color:#9c0;}
+.n1024{background-color:#33b5e5;}
+.n2048{background-color:#09c;}
+.n4096{background-color:#a6c;}
+.n8192{background-color:#93c;}
+.n16384{background-color:#000;}
+.n8,.n16,.n32,.n64,.n128,.n256,.n512,.n1024,.n2048,.n4096,.n8192,.n16384{color:#fff;}
+.n1024,.n2048,.n4096,.n8192{font-size:24/$a+rem;}
+.n16384{font-size:20/$a+rem;}
+#gameOver,.gamePass{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0px;left:0px;
+    display:none;
+}
+.gamePass{
+    background-color:rgba(0,0,0,0.5);
+}
+#gameOver div{
+    width:100%;
+    height:100%;
+    background-color:#555;
+    opacity:0.5;
+}
+#gameOver>p{
+    width:200/$a+rem;
+    height:100/$a+rem;
+    position:absolute;
+    border-radius:10/$a+rem;
+    top:150/$a+rem;
+    left:50%;
+    margin-left:-100/$a+rem;
+    border:1px solid #edcf72;
+    line-height:1.6em;
+    text-align:center;
+    background-color:#fff;
+}
+a.button{
+    display:inline-block;
+    width: 150px;
+    padding:10/$a+rem;
+    background-color:orangered;
+    border-radius:6/$a+rem;
+    color:#fff;  
+}
+.gamePass div{
+    width:200/$a+rem;
+    height:200/$a+rem;
+    background:violet;
+    position:absolute;
+    top:35%;left:50%;
+    margin:-100/$a+rem 0 0 -100/$a+rem;
+    text-align:center;
+    border-radius:10/$a+rem;
+    box-sizing: border-box;
+    padding-top:35/$a+rem;
+    p{
+        width: 100%;
+        line-height: 50/$a+rem;
+        font-size:30/$a+rem;
+        color:red;
+        font-weight:bold;
+    }
+    & span{
+        display: inline-block;
+        font-size:20/$a+rem;
+        padding:10/$a+rem 0;
+    }
+    & button{
+        width:50/$a+rem;
+        height:40/$a+rem;
+        outline:none;
+        border:none;
+        background: orangered;
+        border-radius:10/$a+rem;
+        color:#fff;
+        font-size:20/$a+rem;
+        margin:0 10/$a+rem;
+    }
+}
+.controls{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    button{
+        width: 200/$a+rem;
+        height: 50/$a+rem;
+        background: orangered;
+        color:#fff;
+        text-shadow: 2px 3px 3px #000;
+        font-size: 24/$a+rem;
+        font-weight:bold;
+        border:none;
+        margin:10/$a+rem;
+        border-radius:8/$a+rem;
+    }
+}
