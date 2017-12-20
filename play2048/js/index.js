@@ -22,38 +22,37 @@ $(function(){
 		window.location.href='game2048.html'
 	})
 	var jb_li=$('.jb')[0].getElementsByTagName('li')
-	localStorage.grade=2048
+	sessionStorage.grade=2048
 	for(let i=0;i<jb_li.length;i++){
 		$(jb_li)[i].addEventListener('touchstart',function(e){
 			e.preventDefault()
 			stopPropagation()
 			$('#menu a:eq(1)').text($(this).text())
 			if(i==0){
-				localStorage.grade=2048
+				sessionStorage.grade=2048
 			}
 			if(i==1){
-				localStorage.grade=8192
+				sessionStorage.grade=8192
 			}
 			if(i==2){
-				localStorage.grade=3
+				sessionStorage.grade=3
 			}
-			console.log(localStorage.grade)
 			$('.jb').eq(0).css('display','none')
 		})
 	}
+	sessionStorage.close=0
 	$('.close div')[0].addEventListener('touchstart',function(e){
 		e.preventDefault()
 		if($(this).css('left')=='0px'){
 			$(this).css('left','50%')
-			localStorage.close=0
+			sessionStorage.close=1
 		}else{
 			$(this).css('left','0px')
-			localStorage.close=1
+			sessionStorage.close=0
 		}
 		setTimeout(function(){
 			$('.jb').eq(1).css('display','none')
 		},500)
-		console.log(localStorage.close)
 	})
 })
 function stopPropagation(ev){

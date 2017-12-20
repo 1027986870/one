@@ -1,6 +1,6 @@
 var str=[]
 var game={
-		data:[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]],
+		data:[],
 		score:0,
 		state:1,
 		running:1,
@@ -10,6 +10,7 @@ var game={
 		arr:[],
 		scorearr:[],
 		start:function(){
+			this.data=[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
 			this.score=0
 			this.state=this.running
 			$('#gameOver').css('display','none')
@@ -261,6 +262,10 @@ var game={
 					$('#c'+row+col)[0].className=this.data[row][col]==0?"cell":"cell n"+this.data[row][col];
 				}
 			}
+			if(this.flag){
+				this.arr.push(this.data)
+				this.scorearr.push(this.data)
+			}
 			$('#score').html(this.score)
 			if(this.isGameOver()){
 				this.state=this.gameOver
@@ -296,7 +301,7 @@ var game={
 		isGamePass:function(){
 			for(var row=0;row<4;row++){
 				for(var col=0;col<4;col++){
-					if(this.data[row][col]==localStorage.grade){
+					if(this.data[row][col]==sessionStorage.grade){
 						return true
 					}
 				}
@@ -306,9 +311,9 @@ var game={
 		backWard:function(){
 			this.flag=false
 			if(this.arr.length>1){
-//				console.log(this.arr)
-//				this.arr.pop()
-//				console.log(this.arr)
+				console.log(this.arr)
+				this.arr.pop()
+				console.log(this.arr)
 				this.scorearr.pop()
 				this.data=this.arr[this.arr.length-1]
 				this.score=this.scorearr[this.scorearr.length-1]
@@ -319,17 +324,19 @@ var game={
 	
 	
 window.onload=function(){
-	console.log(localStorage.grade)
+	
 	game.start()
 	$('.yes')[0].addEventListener('touchstart',function(){
-		if(localStorage.grade==2048){
-			localStorage.grade=8192
+		if(sessionStorage.grade==2048){
+			sessionStorage.grade=8192
 		}
-		if(localStorage.grade==8192){
-			localStorage.grade=3
+		if(sessionStorage.grade==8192){
+			sessionStorage.grade=3
 		}
 		$('#gamePass').css('display','none')
 	})
+	console.log(sessionStorage.grade)
+	console.log(sessionStorage.close)
 	var square = document.querySelector('#gamecon');
 	var manager = new Hammer.Manager(square);
 	var Swipe = new Hammer.Swipe();
@@ -338,33 +345,33 @@ window.onload=function(){
 		var direction = e.offsetDirection;
 		if(direction==2){
 			game.moveLeft()
-			str.push(game.data)
 		}
 		if(direction==4){
 			game.moveRight()
-			str.push(game.data)
 		}
 		if(direction==8){
 			game.moveUp()
-			str.push(game.data)
 		}
 		if(direction==16){
 			game.moveDown()
-			str.push(game.data)
 		}
-		console.log(str)
   	})
-	$('.no')[0].addEventListener('touchstart',function(){
+	$('.box').html(sessionStorage.grade)
+	$('.no')[0].addEventListener('touchstart',function(e){
+		e.preventDefault()
 		$('#gamePass').css('display','none')
 		window.location.href='index.html'
 	})
-	$('.backmenu')[0].addEventListener('touchstart',function(){
+	$('.backmenu')[0].addEventListener('touchstart',function(e){
+		e.preventDefault()
 		window.location.href='index.html'
 	})
-	$('.backward')[0].addEventListener('touchstart',function(){
+	$('.backward')[0].addEventListener('touchstart',function(e){
+		e.preventDefault()
 		game.backWard()
 	})
-	$('#restart')[0].addEventListener('touchstart',function(){
+	$('#restart')[0].addEventListener('touchstart',function(e){
+		e.preventDefault()
 		$('#gameOver').css('display','none')
 		game.start()
 	})
