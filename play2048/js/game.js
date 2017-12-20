@@ -301,6 +301,7 @@ var game={
 		isGamePass:function(){
 			for(var row=0;row<4;row++){
 				for(var col=0;col<4;col++){
+					console.log(sessionStorage.grade)
 					if(this.data[row][col]==sessionStorage.grade){
 						return true
 					}
@@ -327,16 +328,14 @@ window.onload=function(){
 	
 	game.start()
 	$('.yes')[0].addEventListener('touchstart',function(){
-		if(sessionStorage.grade==2048){
-			sessionStorage.grade=8192
-		}
-		if(sessionStorage.grade==8192){
+		if(sessionStorage.grade==16){
+			sessionStorage.grade=32
+		}else if(sessionStorage.grade==32){
 			sessionStorage.grade=3
 		}
 		$('#gamePass').css('display','none')
 	})
 	console.log(sessionStorage.grade)
-	console.log(sessionStorage.close)
 	var square = document.querySelector('#gamecon');
 	var manager = new Hammer.Manager(square);
 	var Swipe = new Hammer.Swipe();

@@ -22,17 +22,17 @@ $(function(){
 		window.location.href='game2048.html'
 	})
 	var jb_li=$('.jb')[0].getElementsByTagName('li')
-	sessionStorage.grade=2048
+	sessionStorage.grade=16
 	for(let i=0;i<jb_li.length;i++){
 		$(jb_li)[i].addEventListener('touchstart',function(e){
 			e.preventDefault()
 			stopPropagation()
 			$('#menu a:eq(1)').text($(this).text())
 			if(i==0){
-				sessionStorage.grade=2048
+				sessionStorage.grade=16
 			}
 			if(i==1){
-				sessionStorage.grade=8192
+				sessionStorage.grade=32
 			}
 			if(i==2){
 				sessionStorage.grade=3
