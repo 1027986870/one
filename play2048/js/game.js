@@ -17,6 +17,9 @@ var game={
 			this.randomNum()
 			this.randomNum()
 			this.dataView()
+			if(sessionStorage.close==0){
+				$('#bgmusic')[0].play()
+			}
 		},
 		isFull:function(){
 			for(var row=0;row<4;row++){
@@ -262,6 +265,7 @@ var game={
 					$('#c'+row+col)[0].className=this.data[row][col]==0?"cell":"cell n"+this.data[row][col];
 				}
 			}
+			yx()
 			if(this.flag){
 				this.arr.push(this.data)
 				this.scorearr.push(this.data)
@@ -295,6 +299,7 @@ var game={
 						}
 					}
 				}
+				failmusic()
 				return true;
 			}
 		},
@@ -303,6 +308,7 @@ var game={
 				for(var col=0;col<4;col++){
 					console.log(sessionStorage.grade)
 					if(this.data[row][col]==sessionStorage.grade){
+						passmusic()
 						return true
 					}
 				}
@@ -333,6 +339,12 @@ window.onload=function(){
 		}else if(sessionStorage.grade==32){
 			sessionStorage.grade=3
 		}
+		if(sessionStorage.close==0){
+			if($('#bgmusic')[0].paused){
+				$('#bgmusic')[0].play()
+			}
+		}
+		
 		$('#gamePass').css('display','none')
 	})
 	console.log(sessionStorage.grade)
@@ -355,7 +367,7 @@ window.onload=function(){
 			game.moveDown()
 		}
   	})
-	$('.backward').html(sessionStorage.grade)
+	
 	$('.no')[0].addEventListener('touchstart',function(e){
 		e.preventDefault()
 		$('#gamePass').css('display','none')
@@ -374,6 +386,30 @@ window.onload=function(){
 		$('#gameOver').css('display','none')
 		game.start()
 	})
+}
+function passmusic(){
+	if(sessionStorage.close==0){
+		if($('#bgmusic')[0].paused==false){
+			$('#bgmusic')[0].pause()
+		}
+		$('#pass')[0].play()
+	}	
+}
+function failmusic(){
+	if(sessionStorage.close==0){
+		$('#bgmusic')[0].currentTime=0;
+		$('#bgmusic')[0].pause()
+		$('#fail')[0].play()
+	}
+}
+function yx(){
+	if(sessionStorage.yx==0){
+		$('#yx')[0].play()
+		setTimeout(function(){
+			$('#yx')[0].currentTime=0;
+			$('#yx')[0].pause()
+		},300)
+	}		
 }
 function getStyle(obj){
 	if(obj.currentStyle){

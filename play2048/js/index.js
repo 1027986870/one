@@ -10,12 +10,15 @@ $(function(){
 	})
 	$('#menu>li')[1].addEventListener('touchstart',function(e){
 		e.preventDefault()
-		$('.jb').eq(0).css('display','block')
-		$('.jb').eq(1).css('display','none')
+		$('.jb').css('display','block')
 	})
 	$('#menu>li')[2].addEventListener('touchstart',function(e){
 		e.preventDefault()
-		$('.jb').eq(1).css('display','block')
+		$('.musicbg').css('display','flex')
+	})
+	$('.musicbg .iconfont')[0].addEventListener('touchstart',function(e){
+		e.preventDefault()
+		$('.musicbg').css('display','none')
 	})
 	$('#menu>li')[3].addEventListener('touchstart',function(e){
 		e.preventDefault()
@@ -41,7 +44,8 @@ $(function(){
 		})
 	}
 	sessionStorage.close=0
-	$('.close div')[0].addEventListener('touchstart',function(e){
+	sessionStorage.yx=0
+	$('#mclose')[0].addEventListener('touchstart',function(e){
 		e.preventDefault()
 		if($(this).css('left')=='0px'){
 			$(this).css('left','50%')
@@ -50,9 +54,18 @@ $(function(){
 			$(this).css('left','0px')
 			sessionStorage.close=0
 		}
-		setTimeout(function(){
-			$('.jb').eq(1).css('display','none')
-		},500)
+		
+	})
+	$('#yclose')[0].addEventListener('touchstart',function(e){
+		e.preventDefault()
+		if($(this).css('left')=='0px'){
+			$(this).css('left','50%')
+			sessionStorage.yx=1
+		}else{
+			$(this).css('left','0px')
+			sessionStorage.yx=0
+		}
+		
 	})
 })
 function stopPropagation(ev){
