@@ -356,7 +356,7 @@ window.onload=function(){
 			game.moveDown()
 		}
   	})
-	$('.box').html(sessionStorage.grade)
+	$('.backward').html(sessionStorage.grade)
 	$('.no')[0].addEventListener('touchstart',function(e){
 		e.preventDefault()
 		$('#gamePass').css('display','none')
