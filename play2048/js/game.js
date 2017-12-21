@@ -266,11 +266,11 @@ var game={
 				}
 			}
 			yx()
-			if(this.flag){
-				this.arr.push(this.data)
-				this.scorearr.push(this.data)
-			}
 			$('#score').html(this.score)
+			if(this.score>localStorage.hscore){
+				localStorage.hscore=this.score
+			}
+			$('.hscore').html(localStorage.hscore)
 			if(this.isGameOver()){
 				this.state=this.gameOver
 				$('#finishScore').html(this.score)
@@ -314,22 +314,11 @@ var game={
 				}
 			}
 			return false
-		},
-		backWard:function(){
-			this.flag=false
-			if(this.arr.length>1){
-				console.log(this.arr)
-				this.arr.pop()
-				console.log(this.arr)
-				this.scorearr.pop()
-				this.data=this.arr[this.arr.length-1]
-				this.score=this.scorearr[this.scorearr.length-1]
-				this.dataView()
-			}
 		}
 	}
-	
-	
+	if(!localStorage.hscore){
+		localStorage.hscore=0
+	}
 window.onload=function(){
 	
 	game.start()
@@ -343,11 +332,9 @@ window.onload=function(){
 			if($('#bgmusic')[0].paused){
 				$('#bgmusic')[0].play()
 			}
-		}
-		
+		}		
 		$('#gamePass').css('display','none')
 	})
-	console.log(sessionStorage.grade)
 	var square = document.querySelector('#gamecon');
 	var manager = new Hammer.Manager(square);
 	var Swipe = new Hammer.Swipe();
@@ -366,8 +353,7 @@ window.onload=function(){
 		if(direction==16){
 			game.moveDown()
 		}
-  	})
-	
+    })
 	$('.no')[0].addEventListener('touchstart',function(e){
 		e.preventDefault()
 		$('#gamePass').css('display','none')
@@ -377,38 +363,54 @@ window.onload=function(){
 		e.preventDefault()
 		window.location.href='index.html'
 	})
-	$('.backward')[0].addEventListener('touchstart',function(e){
-		e.preventDefault()
-		game.backWard()
-	})
 	$('#restart')[0].addEventListener('touchstart',function(e){
 		e.preventDefault()
 		$('#gameOver').css('display','none')
 		game.start()
 	})
+	$('.reset')[0].addEventListener('touchstart',function(e){
+		e.preventDefault()
+		$('.clear').css('display','flex')
+	})
+	$('#clear')[0].addEventListener('touchstart',function(e){
+		e.preventDefault()
+		localStorage.hscore=0
+		$('.clear').css('display','none')
+		$('.hscore').html(localStorage.hscore)
+	})
+	$('#not')[0].addEventListener('touchstart',function(e){
+		e.preventDefault()
+		$('.clear').css('display','none')
+	})
 }
 function passmusic(){
-	if(sessionStorage.close==0){
+	if(sessionStorage.close==0||sessionStorage.yx==0){
 		if($('#bgmusic')[0].paused==false){
 			$('#bgmusic')[0].pause()
 		}
+		$('#yx')[0].currentTime=0;
+		$('#yx')[0].pause()
 		$('#pass')[0].play()
 	}	
 }
 function failmusic(){
-	if(sessionStorage.close==0){
+	if(sessionStorage.close==0||sessionStorage.yx==0){
 		$('#bgmusic')[0].currentTime=0;
 		$('#bgmusic')[0].pause()
+		$('#yx')[0].currentTime=0;
+		$('#yx')[0].pause()
 		$('#fail')[0].play()
 	}
 }
 function yx(){
-	if(sessionStorage.yx==0){
-		$('#yx')[0].play()
-		setTimeout(function(){
-			$('#yx')[0].currentTime=0;
-			$('#yx')[0].pause()
-		},300)
+	if(sessionStorage.close==1){
+		if(sessionStorage.yx==0){
+			$('#yx')[0].play()
+			setTimeout(function(){
+				$('#yx')[0].currentTime=0;
+				$('#yx')[0].pause()
+			},300)
+		}
 	}		
 }
 function getStyle(obj){

@@ -83,4 +83,9 @@ a.button { display: inline-block; width: 150px; padding: 0.625rem; background-co
 .controls { display: flex; flex-direction: column; align-items: center; }
 .controls button { width: 12.5rem; height: 3.125rem; background: orangered; color: #fff; text-shadow: 2px 3px 3px #000; font-size: 1.5rem; font-weight: bold; border: none; margin: 0.625rem; border-radius: 0.5rem; }
 
+.clear { width: 100%; height: 100%; display: none; flex-direction: column; justify-content: center; align-items: center; background: rgba(0, 0, 0, 0.5); position: absolute; top: 0; z-index: 100; }
+.clear > div { display: flex; flex-direction: column; width: 80%; height: 12.5rem; background: #fff; border-radius: 0.625rem; text-align: center; padding: 1.25rem; box-sizing: border-box; font-size: 1.5rem; color: orangered; }
+.clear > div button { width: 30%; height: 3.125rem; font-size: 1.5rem; color: #fff; border: none; background: orangered; border-radius: 0.625rem; }
+.clear > div p { padding: 1.25rem; }
+
 /*# sourceMappingURL=game.css.map */
