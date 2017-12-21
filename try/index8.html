@@ -4,9 +4,26 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<embed src="bgmusic.mp3" loop=true hidden=true></embed>
-		
+		<style>
+			button{
+				width: 100px;
+				height: 50px;
+			}
+		</style>
 	</head>
 	<body>
-		<audio src="yx.wav" loop autoplay></audio>
+		<audio src="yx.wav" id='mc'></audio>
+		<button id='btn'>按钮</button>
 	</body>	
+	<script>
+		var btn=document.getElementById('btn')
+		var mc=document.getElementById('mc')
+		btn.onclick=function(){
+			mc.play()
+			setTimeout(function(){
+				mc.currentTime=0
+				mc.pause()
+			},300)
+		}
+	</script>
 </html>
