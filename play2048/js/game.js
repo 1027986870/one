@@ -385,9 +385,7 @@ window.onload=function(){
 }
 function passmusic(){
 	if(sessionStorage.close==0||sessionStorage.yx==0){
-		if($('#bgmusic')[0].paused==false){
-			$('#bgmusic')[0].pause()
-		}
+		$('#bgmusic')[0].pause()
 		$('#yx')[0].currentTime=0;
 		$('#yx')[0].pause()
 		$('#pass')[0].play()
