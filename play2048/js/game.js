@@ -333,6 +333,8 @@ window.onload=function(){
 				$('#bgmusic')[0].play()
 			}
 		}		
+		$('#pass')[0].currentTime=0
+		$('#pass')[0].pause()
 		$('#gamePass').css('display','none')
 	})
 	var square = document.querySelector('#gamecon');
